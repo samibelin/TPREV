@@ -39,7 +39,7 @@ namespace ConvertDevises.Métier
         }
 
         /// <summary>
-        /// A function to convert a devise into another
+        /// A method to convert a devise into another
         /// </summary>
         /// <param name="valeur">How many you want to convert</param>
         /// <param name="source">The initial devise</param>
