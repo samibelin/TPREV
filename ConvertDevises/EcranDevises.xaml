@@ -1,0 +1,37 @@
+﻿<Window x:Class="ConvertDevises.EcranDevises"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConvertDevises"
+        mc:Ignorable="d"
+        Title="TP n°13" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Label DockPanel.Dock="Top" Content="Devise source :" Margin="10" />
+            <ListBox x:Name="source" Margin="10" SelectionChanged="ChoisirDeviseSource"  />
+        </DockPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Margin="10" Content="Valeur :" VerticalAlignment="Bottom" />
+            <TextBox x:Name="valeur" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontSize="20" />
+            <Button Content="Convertir" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="6" Click="Convertir" />
+            <TextBox x:Name="resultat" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" IsReadOnly="True" FontSize="20" />
+        </Grid>
+        <DockPanel Grid.Column="2">
+            <Label DockPanel.Dock="Top" Content="Devise cible :" Margin="10" />
+            <ListBox x:Name="cible" Margin="10" SelectionChanged="ChoisirDeviseCible"  />
+        </DockPanel>
+    </Grid>
+</Window>
