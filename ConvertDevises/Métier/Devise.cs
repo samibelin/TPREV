@@ -5,17 +5,29 @@ using System.Text;
 
 namespace ConvertDevises.Métier
 {
+    /// <summary>
+    /// Class representing a devise
+    /// </summary>
     [DataContract]
     public class Devise
     {
         [DataMember] private string nom;
         [DataMember] private double valConvBase;
         
+        /// <summary>
+        /// Return a string, the name of the devise
+        /// </summary>
         public string Nom
         {
             get { return nom; }
         }
 
+        /// <summary>
+        /// The constructor of the class
+        /// </summary>
+        /// <param name="nom">the name of the devise</param>
+        /// <param name="valeur">the actual value of the devise</param>
+        /// <exception cref="ErreurDeviseIncorrecte">If the name is blank or the value is below zero the devise is incorrect</exception>
         public Devise(string nom, double valeur)
         {
             if (string.IsNullOrWhiteSpace(nom))
@@ -26,6 +38,13 @@ namespace ConvertDevises.Métier
             
         }
 
+        /// <summary>
+        /// A function to convert a devise into another
+        /// </summary>
+        /// <param name="valeur">How many you want to convert</param>
+        /// <param name="source">The initial devise</param>
+        /// <returns>The final value</returns>
+        /// <exception cref="ErreurDeviseIncorrecte">If the devise is null or the devise's value is below zero</exception>
         public double Convertir(double valeur, Devise source)
         {
             if (source == null) throw new ErreurDeviseIncorrecte();
@@ -34,11 +53,20 @@ namespace ConvertDevises.Métier
             return val; 
         }
 
+        /// <summary>
+        /// Return a string with the name of the devise
+        /// </summary>
+        /// <returns>String name of the devise</returns>
         public override string ToString()
         {
             return nom;
         }
 
+        /// <summary>
+        /// Verify if two devise has the same value and name
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True or false</returns>
         public override bool Equals(object obj)
         {
             return obj is Devise devise &&
@@ -46,6 +74,10 @@ namespace ConvertDevises.Métier
                    valConvBase == devise.valConvBase;
         }
 
+        /// <summary>
+        /// Get the hash code of the devise
+        /// </summary>
+        /// <returns>Int the hash code of the devise</returns>
         public override int GetHashCode()
         {
             return HashCode.Combine(nom, valConvBase);
