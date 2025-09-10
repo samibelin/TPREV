@@ -25,8 +25,8 @@ namespace ConvertDevises.Métier
         /// <summary>
         /// The constructor of the class
         /// </summary>
-        /// <param name="nom">the name of the devise</param>
-        /// <param name="valeur">the actual value of the devise</param>
+        /// <param name="nom">the name of the devise, not null</param>
+        /// <param name="valeur">the actual value of the devise, positive</param>
         /// <exception cref="ErreurDeviseIncorrecte">If the name is blank or the value is below zero the devise is incorrect</exception>
         public Devise(string nom, double valeur)
         {
@@ -41,8 +41,8 @@ namespace ConvertDevises.Métier
         /// <summary>
         /// A method to convert a devise into another
         /// </summary>
-        /// <param name="valeur">How many you want to convert</param>
-        /// <param name="source">The initial devise</param>
+        /// <param name="valeur">How many you want to convert, superior to zero</param>
+        /// <param name="source">The initial devise, not null</param>
         /// <returns>The final value</returns>
         /// <exception cref="ErreurDeviseIncorrecte">If the devise is null or the devise's value is below zero</exception>
         public double Convertir(double valeur, Devise source)
@@ -65,7 +65,7 @@ namespace ConvertDevises.Métier
         /// <summary>
         /// Verify if two devise has the same value and name
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Another devise to compare with</param>
         /// <returns>True or false</returns>
         public override bool Equals(object obj)
         {

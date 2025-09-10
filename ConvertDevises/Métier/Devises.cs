@@ -22,10 +22,10 @@ namespace ConvertDevises.Métier
         /// <summary>
         /// Method for the convertion of a devise in another
         /// </summary>
-        /// <param name="valeur">The initial value</param>
-        /// <param name="source">The devise to convert from</param>
-        /// <param name="cible">The devise to be converted in</param>
-        /// <returns>The value in the second devise</returns>
+        /// <param name="valeur">The initial value, superior to zero</param>
+        /// <param name="source">The devise to convert from, not null</param>
+        /// <param name="cible">The devise to be converted in, not null</param>
+        /// <returns>The value converted in the second devise</returns>
         /// <exception cref="ErreurDeviseIncorrecte">If the second devise is null</exception>
         public double Convertir(double valeur, Devise source, Devise cible)
         {
@@ -36,7 +36,7 @@ namespace ConvertDevises.Métier
         /// <summary>
         /// Add to the list of devise a new one
         /// </summary>
-        /// <param name="d">The devise to add</param>
+        /// <param name="d">The devise to add to the list</param>
         public void Ajouter(Devise d)
         {
             devises.Add(d);
